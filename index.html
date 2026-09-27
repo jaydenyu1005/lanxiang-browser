@@ -8,131 +8,68 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
-    --bg: #0f1115;
-    --bg2: #161a22;
-    --card: #1c212c;
-    --line: #2a3140;
-    --text: #e8ecf1;
-    --muted: #9aa4b2;
-    --accent: #4a9eff;
-    --accent2: #6bb6ff;
+    --bg: #0f1115; --bg2: #161a22; --card: #1c212c; --line: #2a3140;
+    --text: #e8ecf1; --muted: #9aa4b2; --accent: #4a9eff; --accent2: #6bb6ff;
   }
-  body {
-    font-family: -apple-system, "Microsoft YaHei", "Segoe UI", sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
+  html { scroll-behavior: smooth; }
+  body { font-family: -apple-system, "Microsoft YaHei", "Segoe UI", sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; -webkit-font-smoothing: antialiased; }
   .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-
-  /* Nav */
-  nav {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 22px 0;
-  }
+  nav { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; position: sticky; top: 0; background: rgba(15,17,21,.85); backdrop-filter: blur(10px); z-index: 100; }
   .logo { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 18px; }
-  .logo-mark {
-    width: 34px; height: 34px; border-radius: 9px;
-    background: linear-gradient(135deg, #4a9eff, #2b6cd6);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 18px; color: #fff;
-  }
-  nav .nav-links { display: flex; gap: 28px; font-size: 14px; color: var(--muted); }
-  nav .nav-links a { color: var(--muted); text-decoration: none; transition: color .2s; }
+  .logo-mark { width: 34px; height: 34px; border-radius: 9px; overflow:hidden; display:flex; }
+  .logo-mark img { width:100%; height:100%; object-fit:cover; }
+  nav .nav-links { display: flex; gap: 28px; font-size: 14px; }
+  nav .nav-links a { color: var(--muted); text-decoration: none; }
   nav .nav-links a:hover { color: var(--text); }
-
-  /* Hero */
   .hero { padding: 70px 0 50px; text-align: center; }
-  .hero .tag {
-    display: inline-block; padding: 6px 14px; border-radius: 20px;
-    background: rgba(74,158,255,.12); color: var(--accent2);
-    font-size: 13px; margin-bottom: 22px;
-  }
-  .hero h1 {
-    font-size: 52px; font-weight: 700; letter-spacing: 2px;
-    margin-bottom: 18px; line-height: 1.2;
-  }
+  .hero .tag { display: inline-block; padding: 6px 14px; border-radius: 20px; background: rgba(74,158,255,.12); color: var(--accent2); font-size: 13px; margin-bottom: 22px; }
+  .hero h1 { font-size: 52px; font-weight: 700; letter-spacing: 2px; margin-bottom: 18px; line-height: 1.2; }
   .hero h1 span { color: var(--accent); }
   .hero p { font-size: 18px; color: var(--muted); max-width: 620px; margin: 0 auto 32px; }
   .btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-  .btn {
-    padding: 13px 30px; border-radius: 10px; font-size: 15px;
-    text-decoration: none; transition: transform .15s, box-shadow .15s;
-  }
+  .btn { padding: 13px 30px; border-radius: 10px; font-size: 15px; text-decoration: none; transition: transform .15s; display:inline-block; }
   .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 8px 24px rgba(74,158,255,.3); }
   .btn-primary:hover { transform: translateY(-2px); }
   .btn-ghost { border: 1px solid var(--line); color: var(--text); }
   .btn-ghost:hover { background: var(--card); }
-
-  /* Mock window */
-  .mock {
-    margin: 50px auto 0; max-width: 880px;
-    background: var(--bg2); border: 1px solid var(--line); border-radius: 14px;
-    box-shadow: 0 30px 80px rgba(0,0,0,.5); overflow: hidden;
-    text-align: left;
-  }
+  .mock { margin: 50px auto 0; max-width: 880px; background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 30px 80px rgba(0,0,0,.5); overflow: hidden; text-align: left; }
   .mock-bar { display: flex; align-items: center; gap: 8px; padding: 12px 16px; background: #11151c; border-bottom: 1px solid var(--line); }
   .dot { width: 11px; height: 11px; border-radius: 50%; }
   .dot.r { background: #ff5f57; } .dot.y { background: #febc2e; } .dot.g { background: #28c840; }
   .mock-url { flex: 1; margin-left: 12px; background: #0b0e13; border-radius: 8px; padding: 7px 14px; font-size: 12px; color: var(--muted); }
   .mock-body { padding: 50px 30px; text-align: center; }
+  .mock-body .appicon { width: 72px; height: 72px; border-radius: 18px; box-shadow: 0 8px 30px rgba(74,158,255,.3); margin-bottom: 18px; }
   .mock-logo { font-size: 34px; letter-spacing: 6px; margin-bottom: 26px; font-weight: 300; }
-  .mock-search { max-width: 480px; margin: 0 auto 30px; background: #0b0e13; border: 1px solid var(--line); border-radius: 24px; padding: 12px 20px; color: var(--muted); font-size: 14px; }
+  .mock-search { max-width: 480px; margin: 0 auto 30px; background: #0b0e13; border: 1px solid var(--line); border-radius: 24px; padding: 12px 20px; color: var(--muted); font-size: 14px; text-align:left; }
   .mock-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; max-width: 480px; margin: 0 auto; }
   .mock-tile { background: var(--card); border-radius: 10px; padding: 14px 6px; font-size: 12px; color: var(--muted); }
   .mock-tile .ci { width: 30px; height: 30px; border-radius: 7px; background: var(--accent); margin: 0 auto 6px; opacity: .8; }
-
-  /* Section title */
-  .section { padding: 80px 0 20px; text-align: center; }
-  .section h2 { font-size: 34px; font-weight: 600; margin-bottom: 12px; }
-  .section > p { color: var(--muted); font-size: 16px; max-width: 560px; margin: 0 auto; }
-
-  /* Features */
-  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 44px; }
-  .card {
-    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
-    padding: 26px; transition: transform .2s, border-color .2s;
-  }
-  .card:hover { transform: translateY(-4px); border-color: var(--accent); }
-  .card .ico {
-    width: 42px; height: 42px; border-radius: 10px;
-    background: rgba(74,158,255,.15); color: var(--accent2);
-    display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 16px;
-  }
-  .card h3 { font-size: 17px; margin-bottom: 8px; }
-  .card p { font-size: 14px; color: var(--muted); }
-
-  /* Highlight strip */
-  .strip {
-    margin: 70px 0; padding: 40px; border-radius: 16px;
-    background: linear-gradient(135deg, rgba(74,158,255,.12), rgba(74,158,255,.03));
-    border: 1px solid rgba(74,158,255,.25);
-    display: flex; align-items: center; justify-content: space-between; gap: 30px; flex-wrap: wrap;
-  }
-  .strip h3 { font-size: 24px; margin-bottom: 6px; }
-  .strip p { color: var(--muted); }
-
+  .section-head { padding: 80px 0 20px; text-align: center; }
+  .section-head h2 { font-size: 34px; font-weight: 600; margin-bottom: 12px; }
+  .section-head p { color: var(--muted); font-size: 16px; }
+  .feature { min-height: 90vh; display: flex; align-items: center; border-top: 1px solid var(--line); padding: 60px 0; }
+  .feature .inner { display: flex; align-items: center; gap: 60px; width: 100%; }
+  .feature:nth-child(even) .inner { flex-direction: row-reverse; }
+  .feature .ficon { flex: 0 0 220px; height: 220px; border-radius: 28px; background: linear-gradient(135deg, rgba(74,158,255,.18), rgba(74,158,255,.04)); border: 1px solid rgba(74,158,255,.25); display: flex; align-items: center; justify-content: center; font-size: 88px; color: var(--accent2); }
+  .feature .ftext .num { font-size: 14px; color: var(--accent); letter-spacing: 3px; margin-bottom: 10px; }
+  .feature .ftext h3 { font-size: 32px; margin-bottom: 18px; font-weight: 600; }
+  .feature .ftext p { font-size: 16px; color: var(--muted); max-width: 560px; }
+  .feature .ftext strong { color: var(--text); font-weight: 600; }
   footer { padding: 40px 0; text-align: center; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); margin-top: 60px; }
-
   @media (max-width: 760px) {
     .hero h1 { font-size: 36px; }
-    .grid { grid-template-columns: 1fr; }
-    nav .nav-links { display: none; }
+    .feature .inner { flex-direction: column !important; text-align: center; }
+    .feature .ficon { flex: 0 0 140px; height: 140px; font-size: 56px; }
+    .feature .ftext p { margin: 0 auto; }
   }
 </style>
 </head>
 <body>
 <div class="wrap">
   <nav>
-    <div class="logo"><div class="logo-mark" style="padding:0;overflow:hidden"><img src="logo.ico" style="width:100%;height:100%;object-fit:cover"></div>蓝享浏览器</div>
-    <div class="nav-links">
-      <a href="#features">功能</a>
-      <a href="#why">为什么选它</a>
-      <a href="#download">下载</a>
-    </div>
+    <div class="logo"><div class="logo-mark"><img src="logo.ico"></div>蓝享浏览器</div>
+    <div class="nav-links"><a href="#features">功能</a><a href="#download">下载</a></div>
   </nav>
-
   <header class="hero">
     <div class="tag">Windows 桌面端 · 免费 · 开箱即用</div>
     <h1>轻快干净的 <span>蓝享浏览器</span></h1>
@@ -141,14 +78,13 @@
       <a class="btn btn-primary" href="#download">立即下载</a>
       <a class="btn btn-ghost" href="#features">了解功能</a>
     </div>
-
     <div class="mock">
       <div class="mock-bar">
         <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
         <div class="mock-url">about:home — 蓝享浏览器</div>
       </div>
       <div class="mock-body">
-        <div style="margin-bottom:18px"><img src="logo.ico" style="width:72px;height:72px;border-radius:18px;box-shadow:0 8px 30px rgba(74,158,255,.3)"></div>
+        <img class="appicon" src="logo.ico">
         <div class="mock-logo">蓝享浏览器</div>
         <div class="mock-search">输入搜索内容或网址</div>
         <div class="mock-grid">
@@ -164,39 +100,72 @@
       </div>
     </div>
   </header>
-
-  <section class="section" id="features">
-    <h2>为日常浏览而设计</h2>
-    <p>每一个功能都经过打磨，没有花哨的噱头，只有顺手。</p>
-    <div class="grid">
-      <div class="card"><div class="ico">⌨</div><h3>快捷键全覆盖</h3><p>Ctrl+T 新标签、Ctrl+W 关标签、Ctrl+Tab 切换，鼠标侧键直接切页，和主流浏览器肌肉记忆一致。</p></div>
-      <div class="card"><div class="ico">◫</div><h3>左右分屏</h3><p>一键把两个标签页并排显示，一边查资料一边写东西，不用来回切窗口。</p></div>
-      <div class="card"><div class="ico">⬇</div><h3>内置下载管理</h3><p>下载速度、进度、暂停、删除一目了然，不用翻系统下载夹。</p></div>
-      <div class="card"><div class="ico">☾</div><h3>深浅色主题</h3><p>深色深灰护眼，浅色干净通透，一键切换，主页和界面立即跟随。</p></div>
-      <div class="card"><div class="ico">★</div><h3>收藏主页</h3><p>新标签页直接显示你收藏的网站图标，点开即达，最多八个常用站点。</p></div>
-      <div class="card"><div class="ico">中</div><h3>全中文界面</h3><p>菜单、右键、设置全部中文，没有看不懂的英文选项。</p></div>
-      <div class="card"><div class="ico">⚙</div><h3>自定义搜索引擎</h3><p>在设置里换成你习惯的搜索引擎，主页搜索框自动跟随。</p></div>
-      <div class="card"><div class="ico">F11</div><h3>全屏专注</h3><p>F11 一键全屏，去掉所有干扰，看视频、读文章更沉浸。</p></div>
-      <div class="card"><div class="ico">✓</div><h3>可设默认浏览器</h3><p>安装后即可在系统默认应用中选择，链接自动用蓝享打开。</p></div>
+  <div class="section-head" id="features">
+    <h2>九大功能，样样顺手</h2>
+    <p>向下滚动，逐个了解</p>
+  </div>
+  <section class="feature"><div class="inner">
+    <div class="ficon">⌨</div>
+    <div class="ftext"><div class="num">01</div><h3>快捷键全覆盖</h3>
+      <p><strong>新标签 Ctrl+T、关闭标签 Ctrl+W、切换标签 Ctrl+Tab</strong>、后退前进 Alt+←/→、查找 Ctrl+F、刷新 F5，全部照主流浏览器习惯来。<strong>鼠标侧键直接切换上一个/下一个标签页</strong>，不用抬手摸键盘，浏览长文时翻页更顺手。</p>
     </div>
-  </section>
-
-  <section class="section" id="why">
-    <h2>为什么不是 Chrome？</h2>
-    <p>因为你要的不是又一个 Chrome，而是一个更轻、更懂你习惯的小工具。</p>
-  </section>
-
-  <section class="section" id="download">
+  </div></section>
+  <section class="feature"><div class="inner">
+    <div class="ficon">◫</div>
+    <div class="ftext"><div class="num">02</div><h3>左右分屏</h3>
+      <p>点一下分屏按钮，<strong>从已有标签里选两个，屏幕立刻左右两半并排显示</strong>。一边查资料一边写文档、一边看视频一边聊天，互不遮挡。<strong>再点一次分屏按钮即可合并回单标签</strong>，分屏中的标签会有特殊标记，一眼区分。</p>
+    </div>
+  </div></section>
+  <section class="feature"><div class="inner">
+    <div class="ficon">⬇</div>
+    <div class="ftext"><div class="num">03</div><h3>内置下载管理</h3>
+      <p>点下载链接时<strong>先让你选保存位置</strong>，右上角下载按钮随时打开下载列表。每个任务<strong>实时显示文件名、大小、已下载进度和当前速度</strong>，可暂停、继续或直接删除未完成文件，不用翻系统下载夹，也不会留下打不开的临时文件。</p>
+    </div>
+  </div></section>
+  <section class="feature"><div class="inner">
+    <div class="ficon">☾</div>
+    <div class="ftext"><div class="num">04</div><h3>深浅色主题</h3>
+      <p>右上角齿轮菜单里一键切换。<strong>深色模式用深灰底配浅色文字</strong>，夜间护眼不刺眼；<strong>浅色模式用白底深字</strong>，清爽通透。切换后整个界面、工具栏、主页和搜索框<strong>立即跟随</strong>，重启后自动记住你的选择。</p>
+    </div>
+  </div></section>
+  <section class="feature"><div class="inner">
+    <div class="ficon">★</div>
+    <div class="ftext"><div class="num">05</div><h3>收藏主页</h3>
+      <p>新标签页就是你的个人导航：顶部是搜索框，下方整齐排列<strong>八个常用网站，自动抓取网站图标和名称，一行四个、共两行</strong>。访问过的网站点星标即可收藏，右键可删除，点开即达，不用再输网址。</p>
+    </div>
+  </div></section>
+  <section class="feature"><div class="inner">
+    <div class="ficon">中</div>
+    <div class="ftext"><div class="num">06</div><h3>全中文界面</h3>
+      <p>菜单、右键菜单、设置面板、下载列表、对话框<strong>全部中文</strong>。没有 Copy、Paste、Reload 这种英文混杂，也没有看不懂的"开发者选项"。<strong>对不熟悉电脑的长辈也友好</strong>，装完就能用。</p>
+    </div>
+  </div></section>
+  <section class="feature"><div class="inner">
+    <div class="ficon">⚙</div>
+    <div class="ftext"><div class="num">07</div><h3>自定义搜索引擎与主页</h3>
+      <p>设置里可以填写你习惯的搜索引擎地址，<strong>百度、必应、Google 都支持</strong>，主页搜索框会自动用它搜索。<strong>启动页地址也能改</strong>，想打开哪个网站作为起点都行，不再强制绑定某一家。</p>
+    </div>
+  </div></section>
+  <section class="feature"><div class="inner">
+    <div class="ficon">F11</div>
+    <div class="ftext"><div class="num">08</div><h3>全屏与缩放</h3>
+      <p><strong>F11 一键切换全屏</strong>，隐藏标签栏和地址栏，看视频、读文章、做演示时更沉浸。<strong>Ctrl + 加号/减号缩放网页，右下角实时显示缩放百分比</strong>，Ctrl + 滚轮也能放大缩小，对视力不同的人都友好。</p>
+    </div>
+  </div></section>
+  <section class="feature"><div class="inner">
+    <div class="ficon">✓</div>
+    <div class="ftext"><div class="num">09</div><h3>可设默认浏览器</h3>
+      <p>安装时<strong>注册了系统浏览器协议</strong>，装完即可在 Windows"设置 → 默认应用"里把蓝享设为默认浏览器，以后点邮件里、微信里的链接都会用它打开。控制面板里可以一键卸载，<strong>个人数据也一起清除，不留残留</strong>。</p>
+    </div>
+  </div></section>
+  <section class="section-head" id="download" style="padding-top:80px;">
     <h2>开始使用</h2>
-    <p>下载安装包，运行后按向导提示安装即可。</p>
+    <p>下载安装包，运行后按中文向导提示安装即可。</p>
     <div class="btn-row" style="margin-top:28px;">
       <a class="btn btn-primary" href="https://github.com/jaydenyu1005/lanxiang-browser/releases/download/v1.0/LanXiangBrowser_v1.0_Setup.exe">下载蓝享浏览器 v1.0</a>
     </div>
   </section>
-
-  <footer>
-    蓝享浏览器 · 用 Python 与 Qt 构建 · 仅供学习与个人使用
-  </footer>
+  <footer>蓝享浏览器</footer>
 </div>
 </body>
 </html>
